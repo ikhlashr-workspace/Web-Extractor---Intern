@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "EJtFQqLcQXg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ANTA\\GAOTek\\GOATEKDevelopment-2a9cfcf4886b4fba77a274ff797baf4dff8e2336\\WebDataExtractor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ANTA\\.nuget\\packages\\htmlagilitypack\\1.11.65\\htmlagilitypack.1.11.65.nupkg.sha512",
+    "C:\\Users\\ANTA\\.nuget\\packages\\selenium.webdriver\\4.24.0\\selenium.webdriver.4.24.0.nupkg.sha512",
+    "C:\\Users\\ANTA\\.nuget\\packages\\selenium.webdriver.chromedriver\\128.0.6613.11900\\selenium.webdriver.chromedriver.128.0.6613.11900.nupkg.sha512",
+    "C:\\Users\\ANTA\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.8\\microsoft.netcore.app.runtime.win-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\ANTA\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\ANTA\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.8\\microsoft.aspnetcore.app.runtime.win-x64.8.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
