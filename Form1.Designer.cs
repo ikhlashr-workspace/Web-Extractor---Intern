@@ -86,6 +86,7 @@
             this.urlTextBox.BackColor = System.Drawing.Color.FromArgb(30, 30, 30); // Dark Background
             this.urlTextBox.ForeColor = System.Drawing.Color.White;
             this.urlTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.urlTextBox.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right); // Responsive pada sisi kiri, atas, dan kanan
             // 
             // fetchButton
             // 
@@ -100,6 +101,7 @@
             this.fetchButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.fetchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fetchButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter; // Memastikan teks berada di tengah
+            this.fetchButton.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right); // Responsive pada sisi atas dan kanan
             this.fetchButton.Click += new System.EventHandler(this.fetchButton_Click);
             // 
             // productNameGroupBox
@@ -113,6 +115,7 @@
             this.productNameGroupBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.productNameGroupBox.ForeColor = System.Drawing.Color.White;
             this.productNameGroupBox.BackColor = System.Drawing.Color.FromArgb(37, 37, 38); // Darker Gray
+            this.productNameGroupBox.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right); // Responsive pada sisi kiri, atas, dan kanan
             // 
             // productNameTextBox
             // 
@@ -134,6 +137,7 @@
             this.linkWebsiteGroupBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.linkWebsiteGroupBox.ForeColor = System.Drawing.Color.White;
             this.linkWebsiteGroupBox.BackColor = System.Drawing.Color.FromArgb(37, 37, 38); // Darker Gray
+            this.linkWebsiteGroupBox.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right); // Responsive pada sisi kiri, atas, dan kanan
             // 
             // linkWebsiteTextBox
             // 
@@ -155,6 +159,7 @@
             this.priceGroupBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.priceGroupBox.ForeColor = System.Drawing.Color.White;
             this.priceGroupBox.BackColor = System.Drawing.Color.FromArgb(37, 37, 38); // Darker Gray
+            this.priceGroupBox.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right); // Responsive pada sisi kiri, atas, dan kanan
             // 
             // priceTextBox
             // 
@@ -176,6 +181,7 @@
             this.supplierLinkGroupBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.supplierLinkGroupBox.ForeColor = System.Drawing.Color.White;
             this.supplierLinkGroupBox.BackColor = System.Drawing.Color.FromArgb(37, 37, 38); // Darker Gray
+            this.supplierLinkGroupBox.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right); // Responsive pada sisi kiri, atas, dan kanan
             // 
             // supplierLinkTextBox
             // 
@@ -189,7 +195,6 @@
             // dataGroupBox
             // 
             this.dataGroupBox.Controls.Add(this.dataRichTextBox);
-            this.dataGroupBox.Controls.Add(this.copyAllButton);
             this.dataGroupBox.Location = new System.Drawing.Point(12, 350);
             this.dataGroupBox.Name = "dataGroupBox";
             this.dataGroupBox.Size = new System.Drawing.Size(770, 150);
@@ -198,6 +203,7 @@
             this.dataGroupBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.dataGroupBox.ForeColor = System.Drawing.Color.White;
             this.dataGroupBox.BackColor = System.Drawing.Color.FromArgb(37, 37, 38); // Darker Gray
+            this.dataGroupBox.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right); // Responsive pada sisi kiri, atas, dan kanan
             // 
             // dataRichTextBox
             // 
@@ -210,7 +216,7 @@
             // 
             // copyAllButton
             // 
-            this.copyAllButton.Location = new System.Drawing.Point(670, 0); // Posisi di sebelah label "Data"
+            this.copyAllButton.Location = new System.Drawing.Point(12, 510); // Pindahkan tombol Copy All di antara dataGroupBox dan flowLayoutPanel
             this.copyAllButton.Name = "copyAllButton";
             this.copyAllButton.Size = new System.Drawing.Size(100, 30); // Ukuran diperbesar untuk menampung teks lebih baik
             this.copyAllButton.TabIndex = 7;
@@ -225,11 +231,12 @@
             // 
             // flowLayoutPanel
             // 
-            this.flowLayoutPanel.Location = new System.Drawing.Point(12, 510);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(12, 550);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(776, 150);
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.TabIndex = 8;
+            this.flowLayoutPanel.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right); // Responsive penuh
             // 
             // ProgressBar
             // 
@@ -248,13 +255,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(30, 30, 30); // Dark Mode Background
-            this.ClientSize = new System.Drawing.Size(800, 680);
+            this.ClientSize = new System.Drawing.Size(800, 720); // Ukuran disesuaikan agar pas dengan penambahan copyAllButton
             this.Controls.Add(this.headerPanel);
             this.Controls.Add(this.productNameGroupBox);
             this.Controls.Add(this.linkWebsiteGroupBox);
             this.Controls.Add(this.priceGroupBox);
             this.Controls.Add(this.supplierLinkGroupBox);
             this.Controls.Add(this.dataGroupBox);
+            this.Controls.Add(this.copyAllButton); // Tambahkan copyAllButton di sini
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.urlTextBox); // Menambahkan TextBox untuk URL
             this.Controls.Add(this.fetchButton); // Menambahkan tombol untuk memulai fetch data

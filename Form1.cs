@@ -57,29 +57,30 @@ namespace WebDataExtractor
                 supplierLinkTextBox.Text = supplierLink;
 
                 // Extract all price information from the price module
-                var priceElements = driver.FindElements(By.XPath("//div[@detail-module-name='module_price']//div[@class='price-item']"));
+                var priceElements = driver.FindElements(By.XPath("//div[@detail-module-name='module_price']"));
                 string prices = string.Empty;
+
                 foreach (var priceElement in priceElements)
                 {
-                    string quantity = priceElement.FindElement(By.XPath(".//div[@class='quality']")).Text;
-                    string price = priceElement.FindElement(By.XPath(".//div[@class='price']")).Text;
-                    prices += $"{quantity}: {price}\n";
+                    string price = priceElement.Text.Trim();
+                    prices += string.IsNullOrWhiteSpace(prices) ? price : $" - {price}";
                 }
-                priceTextBox.Text = string.IsNullOrWhiteSpace(prices) ? "Price not found" : prices.Trim();
+
+                priceTextBox.Text = string.IsNullOrWhiteSpace(prices) ? "Price not found" : prices;
 
                 // Extract all text from Description Layout (module_description)
                 var descriptionElement = driver.FindElement(By.XPath("//div[contains(@class, 'module_description')]"));
                 string allData = descriptionElement?.Text.Trim() ?? "No data found in Description Layout";
                 dataRichTextBox.Text = allData;
 
-                // Extract and display images with copy button
+                // Extract and display images with fancy copy button
                 var imageElements = driver.FindElements(By.XPath("//div[contains(@class, 'module_productImage')]//img"));
                 foreach (var img in imageElements)
                 {
                     string? src = img.GetAttribute("src");
                     if (!string.IsNullOrEmpty(src))
                     {
-                        AddImageWithCopyButton(src);
+                        AddImageWithFancyCopyButton(src);
                     }
                 }
             }
@@ -95,35 +96,51 @@ namespace WebDataExtractor
             }
         }
 
-        private void AddImageWithCopyButton(string imageUrl)
-        {
-            // Create PictureBox to display the image
-            PictureBox pictureBox = new PictureBox
-            {
-                Size = new Size(100, 100),
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                ImageLocation = imageUrl
-            };
+        private void AddImageWithFancyCopyButton(string imageUrl)
+{
+    // Create a panel to contain the image and the button, with a fixed size
+    Panel containerPanel = new Panel
+    {
+        Size = new Size(140, 170), // Ukuran panel tetap untuk menampung gambar dan tombol
+        Margin = new Padding(10), // Margin untuk memastikan jarak antar panel
+        BackColor = Color.FromArgb(37, 37, 38) // Warna latar belakang panel
+    };
 
-            // Create Button to copy the image to clipboard
-            Button copyButton = new Button
-            {
-                Text = "Copy Image",
-                Tag = imageUrl
-            };
-            copyButton.Click += async (s, e) => await CopyButton_Click(s, e, imageUrl);
+    // Create PictureBox to display the image with a fixed size
+    PictureBox pictureBox = new PictureBox
+    {
+        Size = new Size(120, 120), // Ukuran tetap untuk gambar
+        SizeMode = PictureBoxSizeMode.StretchImage, // Pastikan gambar memenuhi PictureBox
+        ImageLocation = imageUrl,
+        Location = new Point(10, 10) // Letakkan gambar di bagian atas panel
+    };
 
-            // Add PictureBox and Button to a FlowLayoutPanel
-            FlowLayoutPanel panel = new FlowLayoutPanel
-            {
-                FlowDirection = FlowDirection.LeftToRight,
-                AutoSize = true
-            };
-            panel.Controls.Add(pictureBox);
-            panel.Controls.Add(copyButton);
+    // Create Button to copy the image to clipboard with a smaller size
+    Button copyButton = new Button
+    {
+        Text = "Copy Image",
+        Tag = imageUrl,
+        AutoSize = false,
+        Width = 120, // Lebar tombol sama dengan gambar
+        Height = 30, // Ukuran tombol tetap
+        BackColor = Color.FromArgb(28, 151, 234), // Soft Blue
+        ForeColor = Color.White,
+        FlatStyle = FlatStyle.Flat,
+        Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+        Location = new Point(10, 140) // Letakkan tombol di bawah gambar
+    };
+    copyButton.FlatAppearance.BorderSize = 0; // Menghilangkan border
+    copyButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 122, 204); // Hover effect
 
-            flowLayoutPanel.Controls.Add(panel);
-        }
+    copyButton.Click += async (sender, args) => await CopyButton_Click(sender, args, imageUrl);
+
+    // Add PictureBox and Button to the container panel
+    containerPanel.Controls.Add(pictureBox);
+    containerPanel.Controls.Add(copyButton);
+
+    // Add the container panel to the FlowLayoutPanel
+    flowLayoutPanel.Controls.Add(containerPanel);
+}
 
         private async Task CopyButton_Click(object? sender, EventArgs e, string imageUrl)
         {

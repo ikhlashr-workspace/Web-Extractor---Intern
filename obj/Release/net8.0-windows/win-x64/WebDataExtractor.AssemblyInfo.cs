@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("gaotekmagang")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c23d6ab05e56e322091a498123eb684c82d8b071")]
 [assembly: System.Reflection.AssemblyProductAttribute("gaotekmagang")]
 [assembly: System.Reflection.AssemblyTitleAttribute("gaotekmagang")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
