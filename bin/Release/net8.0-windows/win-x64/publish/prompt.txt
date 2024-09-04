@@ -1,0 +1,83 @@
+Can you create a format with the following specifications:
+
+Product Name
+Product Name rules 
+•	End the Product name with GAOTek
+•	Before GAOTek write one/two words of existing feature
+•	Must have the assigned topic’s keyword in it
+•	It should be Grammatically Correct.
+•	And try not to repeat the names make it a little different from each other
+make product name become topic + product features 
+example : Chemical Detector - GAOTek
+topic : CHEMICAL DETECTOR
+It should be of 135-150 characters including space.
+
+The meta description should be written ONLY IF THERE IS NO OVERVIEW.
+This product name has value technical specification, 2nd technical specification of value, and 3rd technical specification of value. 
+Note: If temperature is given in technical specifications, write it at first in meta description.
+Example: 
+This GPS Drone has a 10 mi control distance, a flight time of 25 mins, and a 23 V 15 mAH battery. 
+This GPS drone has a battery of 23 V 15 mAH, a flight time of 25 mins, and a control distance of 10 mi. 
+Different ways of listing specification and value
+1.value specification 
+For example: 23 mins flight time
+2.specification of value 
+For example: flight time of 23 mins
+Note to use only of, no is or are in between specification and value.
+Restrictions:
+Rule 1: character range:135-150 characters
+Rule 2: lower case whole meta description and ensure grammatically correct by including articles suggested or spelling corrections suggested
+Rule 3: No redundant words like has, is, with, or irrelevant words like about
+Rule 4: Abbreviations or acronyms must be in UPPER CASE like GPS, LCD, etc.
+Rule 5: Include important specifications based on the product to write in the meta description,             do not use Dimensions or Size.
+Rule 6: Use Grammarly to add articles wherever needed in the meta description to ensure grammar correctness along with checking whether its character range is exceeding or not. SHOULD NOT EXCEED 150 CHARACTERS WITH SPACES.
+Note:
+This has, and are fixed words, only product name and specifications and its value varies’ product by product.
+
+
+Overview Rules : 
+•	The overview should start with GAOTek followed by the product name followed by information from the sourcing site, with the product's full name listed only once in the entire overview paragraph.
+•	In between the overview, there might be model numbers you have to replace with words like “It”, “This device” or “this product”.
+•	If the overview is not there, write the meta description.
+•	WRITE ALL OVERVIEW AND CHANGE WITH THIS RULES!
+If I do not provide an overview, create a meta description starting with GAOTek [product name] and describe the meta description based on the available data.
+
+Features: (I will provide, please organize with bullet points)
+Features 
+
+•	Features should be in bullet points
+•	Make the features short in 5-8 words
+•	Features must not end with a full stop or period
+•	If no features on the website, there is no need to put heading
+
+
+For technical specifications, follow these rules:
+
+Convert mm to inches, after this convert mm to cm, but keep mm and add the notation ( ). its will become a in x b in x c in ( a cm x b cm x c cm ) or A °F to B °F  (A °C to B °C )
+Convert grams to oz but keep grams.
+Convert kg to lbs. a lbs ( a kg ) 
+kg to lb, gram to oz, cm to inch
+Convert Celsius to Fahrenheit
+Replace / with or if it indicates a choice.
+Replace - or ~ with to if it indicates a range.
+Replace * with x.
+Add a space between the number and the unit.
+Ensure all numbers have their respective units, including Fahrenheit, Celsius, mm, and inches.
+
+the techinical spesifications must in table
+every UNIT OF MEASUREMENT must have space, example : 12V become 12 V , or -40 °F to 158 °F , or 0 ppm to 100 ppm. 
+
+PLEASE PROVIDE WITHOUT RULES, BUT ONLY 
+
+NEW NAME : 
+OVERVIEW :
+META DESCRIPTION ; 
+FEATURES ;
+TECHNICAL SPESIFICATIONS : 
+
+IN TECHNICAL SPESIFICATION MAKE / become per if mg/l 1/m or another /  EXAMPLE mg per L 1 per m
+change MM to in with format X in ( Y cm ) 
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+

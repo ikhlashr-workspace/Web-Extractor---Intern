@@ -20,6 +20,7 @@
         private System.Windows.Forms.RichTextBox dataRichTextBox;
         private System.Windows.Forms.Button copyAllButton;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button copyPromptButton;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -59,6 +60,7 @@
             this.dataRichTextBox = new System.Windows.Forms.RichTextBox();
             this.copyAllButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.copyPromptButton = new System.Windows.Forms.Button(); 
             this.SuspendLayout();
             // 
             // headerPanel
@@ -220,7 +222,7 @@
             this.copyAllButton.Name = "copyAllButton";
             this.copyAllButton.Size = new System.Drawing.Size(100, 30); // Ukuran diperbesar untuk menampung teks lebih baik
             this.copyAllButton.TabIndex = 7;
-            this.copyAllButton.Text = "Copy All";
+            this.copyAllButton.Text = "Copy Data";
             this.copyAllButton.UseVisualStyleBackColor = false;
             this.copyAllButton.BackColor = System.Drawing.Color.FromArgb(255, 69, 0); // RedOrange
             this.copyAllButton.ForeColor = System.Drawing.Color.White;
@@ -243,7 +245,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressBar1.Location = new System.Drawing.Point(12, 50); // Di bawah judul
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(770, 23); // Lebar lebih besar
+            this.progressBar1.Size = new System.Drawing.Size(770, 10); // Lebar lebih besar
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee; // Gaya marquee
             this.progressBar1.Visible = false;
             this.progressBar1.ForeColor = System.Drawing.Color.LimeGreen; // Warna hijau
@@ -268,8 +270,25 @@
             this.Controls.Add(this.fetchButton); // Menambahkan tombol untuk memulai fetch data
             this.Name = "Form1";
             this.Text = "GAOTEKMAGANG-WEBEXTRACTOR";
+            this.copyPromptButton.Location = new System.Drawing.Point(120, 510);
+            this.copyPromptButton.Name = "copyPromptButton";
+            this.copyPromptButton.Size = new System.Drawing.Size(200, 30);
+            this.copyPromptButton.TabIndex = 9;
+            this.copyPromptButton.Text = "Copy Prompt and Data";
+            this.copyPromptButton.UseVisualStyleBackColor = false;
+            this.copyPromptButton.BackColor = System.Drawing.Color.FromArgb(28, 151, 234);
+            this.copyPromptButton.ForeColor = System.Drawing.Color.White;
+            this.copyPromptButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.copyPromptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.copyPromptButton.Click += new System.EventHandler(this.copyPromptButton_Click);
+            this.copyPromptButton.Visible = false; // Hidden initially
+
+            // Add other components to the form
+            this.Controls.Add(this.copyPromptButton);
             this.ResumeLayout(false);
             this.PerformLayout();
+
+            
         }
 
         #endregion

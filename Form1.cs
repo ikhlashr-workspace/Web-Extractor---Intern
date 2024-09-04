@@ -13,7 +13,11 @@ namespace WebDataExtractor
         public Form1()
         {
             InitializeComponent();
+            copyPromptButton.Visible = false; // Hide the new button initially
         }
+
+
+
 
         private async void fetchButton_Click(object sender, EventArgs e)
         {
@@ -82,7 +86,8 @@ namespace WebDataExtractor
                     {
                         AddImageWithFancyCopyButton(src);
                     }
-                }
+                } 
+                copyPromptButton.Visible = true; // Show the button after fetching data
             }
             catch (NoSuchElementException)
             {
@@ -95,6 +100,7 @@ namespace WebDataExtractor
                 progressBar1.Visible = false;
             }
         }
+        
 
         private void AddImageWithFancyCopyButton(string imageUrl)
 {
@@ -163,7 +169,7 @@ namespace WebDataExtractor
                 }
             }
         }
-
+        
         private void copyAllButton_Click(object sender, EventArgs e)
         {
             string allData = $"Product Name: {productNameTextBox.Text}\n" +
@@ -173,5 +179,30 @@ namespace WebDataExtractor
                              $"Data: {dataRichTextBox.Text}";
             Clipboard.SetText(allData); // Menyalin semua teks ke clipboard
         }
+
+        private void copyPromptButton_Click(object sender, EventArgs e)
+        {
+            string promptFilePath = "prompt.txt"; // Path to the external file
+            string prompt;
+            try
+            {
+                // Read the prompt from the file
+                prompt = File.ReadAllText(promptFilePath);
+            }
+            catch (Exception ex)
+            {
+                // If there's an error (e.g., file not found), use a default prompt
+                prompt = "Default prompt because file not found or error occurred.";
+                MessageBox.Show($"Error loading prompt: {ex.Message}");
+            }          
+            string allData = $"Product Name: {productNameTextBox.Text}\n" +
+                             $"Link Website: {linkWebsiteTextBox.Text}\n" +
+                             $"Price: {priceTextBox.Text}\n" +
+                             $"Supplier Link: {supplierLinkTextBox.Text}\n" +
+                             $"Data: {dataRichTextBox.Text}";
+            string result = $"{prompt}\n\n{allData}";
+            Clipboard.SetText(result);
+            MessageBox.Show("Prompt and data copied to clipboard!");
+        }        
     }
 }
