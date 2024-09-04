@@ -13,11 +13,11 @@ namespace WebDataExtractor
         public Form1()
         {
             InitializeComponent();
-            copyPromptButton.Visible = false; // Hide the new button initially
+            copyPromptButton.Visible = false; // Hide the Copy Prompt button initially
+            checkDataButton.Visible = false; // Hide the Check Data button initially
         }
 
-
-
+        private string fullDataHtml; // Raw HTML without trimming
 
         private async void fetchButton_Click(object sender, EventArgs e)
         {
@@ -25,19 +25,20 @@ namespace WebDataExtractor
 
             // Set ChromeOptions for headless mode
             ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--headless"); // Menjalankan Chrome tanpa UI
-            options.AddArgument("--disable-gpu"); // Menghindari masalah rendering di Windows
-            options.AddArgument("--disable-dev-shm-usage"); // Mengurangi penggunaan memori bersama
-            options.AddArgument("--no-sandbox"); // Menghindari sandboxing untuk stabilitas
-            options.AddArgument("--disable-extensions"); // Menonaktifkan ekstensi
-            options.AddArgument("--window-size=1920,1080"); // Mengatur ukuran jendela untuk mendapatkan elemen dengan benar
+            options.AddArgument("--headless"); // Run Chrome without UI
+            options.AddArgument("--disable-gpu"); // Avoid rendering issues in Windows
+            options.AddArgument("--disable-dev-shm-usage"); // Reduce shared memory usage
+            options.AddArgument("--no-sandbox"); // Avoid sandboxing for stability
+            options.AddArgument("--disable-extensions"); // Disable extensions
+            options.AddArgument("--window-size=1920,1080"); // Set window size for correct element retrieval
 
             // Setup ChromeDriverService to hide the console window
             ChromeDriverService service = ChromeDriverService.CreateDefaultService();
-            service.HideCommandPromptWindow = true; // Menyembunyikan jendela command prompt
+            service.HideCommandPromptWindow = true; // Hide the command prompt window
 
             // Show loading indicator
             progressBar1.Visible = true;
+            checkDataButton.Visible = false; // Hide the Check Data button initially
 
             IWebDriver driver = new ChromeDriver(service, options);
             driver.Navigate().GoToUrl(url);
@@ -76,6 +77,7 @@ namespace WebDataExtractor
                 var descriptionElement = driver.FindElement(By.XPath("//div[contains(@class, 'module_description')]"));
                 string allData = descriptionElement?.Text.Trim() ?? "No data found in Description Layout";
                 dataRichTextBox.Text = allData;
+                fullDataHtml = descriptionElement?.GetAttribute("outerHTML") ?? "No full data found in Description Layout"; // Store raw HTML
 
                 // Extract and display images with fancy copy button
                 var imageElements = driver.FindElements(By.XPath("//div[contains(@class, 'module_productImage')]//img"));
@@ -86,8 +88,11 @@ namespace WebDataExtractor
                     {
                         AddImageWithFancyCopyButton(src);
                     }
-                } 
-                copyPromptButton.Visible = true; // Show the button after fetching data
+                }
+
+                // Show the buttons after fetching the data
+                copyPromptButton.Visible = true;
+                checkDataButton.Visible = true; // Make the Check Data button visible after data is fetched
             }
             catch (NoSuchElementException)
             {
@@ -100,53 +105,52 @@ namespace WebDataExtractor
                 progressBar1.Visible = false;
             }
         }
-        
 
         private void AddImageWithFancyCopyButton(string imageUrl)
-{
-    // Create a panel to contain the image and the button, with a fixed size
-    Panel containerPanel = new Panel
-    {
-        Size = new Size(140, 170), // Ukuran panel tetap untuk menampung gambar dan tombol
-        Margin = new Padding(10), // Margin untuk memastikan jarak antar panel
-        BackColor = Color.FromArgb(37, 37, 38) // Warna latar belakang panel
-    };
+        {
+            // Create a panel to contain the image and the button, with a fixed size
+            Panel containerPanel = new Panel
+            {
+                Size = new Size(140, 170), // Fixed size to contain image and button
+                Margin = new Padding(10), // Margin to ensure spacing between panels
+                BackColor = Color.FromArgb(37, 37, 38) // Panel background color
+            };
 
-    // Create PictureBox to display the image with a fixed size
-    PictureBox pictureBox = new PictureBox
-    {
-        Size = new Size(120, 120), // Ukuran tetap untuk gambar
-        SizeMode = PictureBoxSizeMode.StretchImage, // Pastikan gambar memenuhi PictureBox
-        ImageLocation = imageUrl,
-        Location = new Point(10, 10) // Letakkan gambar di bagian atas panel
-    };
+            // Create PictureBox to display the image with a fixed size
+            PictureBox pictureBox = new PictureBox
+            {
+                Size = new Size(120, 120), // Fixed size for image
+                SizeMode = PictureBoxSizeMode.StretchImage, // Ensure image fits the PictureBox
+                ImageLocation = imageUrl,
+                Location = new Point(10, 10) // Place image at the top of the panel
+            };
 
-    // Create Button to copy the image to clipboard with a smaller size
-    Button copyButton = new Button
-    {
-        Text = "Copy Image",
-        Tag = imageUrl,
-        AutoSize = false,
-        Width = 120, // Lebar tombol sama dengan gambar
-        Height = 30, // Ukuran tombol tetap
-        BackColor = Color.FromArgb(28, 151, 234), // Soft Blue
-        ForeColor = Color.White,
-        FlatStyle = FlatStyle.Flat,
-        Font = new Font("Segoe UI", 9F, FontStyle.Bold),
-        Location = new Point(10, 140) // Letakkan tombol di bawah gambar
-    };
-    copyButton.FlatAppearance.BorderSize = 0; // Menghilangkan border
-    copyButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 122, 204); // Hover effect
+            // Create Button to copy the image to clipboard with a smaller size
+            Button copyButton = new Button
+            {
+                Text = "Copy Image",
+                Tag = imageUrl,
+                AutoSize = false,
+                Width = 120, // Button width same as image
+                Height = 30, // Fixed button size
+                BackColor = Color.FromArgb(28, 151, 234), // Soft Blue
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Location = new Point(10, 140) // Place button below the image
+            };
+            copyButton.FlatAppearance.BorderSize = 0; // Remove border
+            copyButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 122, 204); // Hover effect
 
-    copyButton.Click += async (sender, args) => await CopyButton_Click(sender, args, imageUrl);
+            copyButton.Click += async (sender, args) => await CopyButton_Click(sender, args, imageUrl);
 
-    // Add PictureBox and Button to the container panel
-    containerPanel.Controls.Add(pictureBox);
-    containerPanel.Controls.Add(copyButton);
+            // Add PictureBox and Button to the container panel
+            containerPanel.Controls.Add(pictureBox);
+            containerPanel.Controls.Add(copyButton);
 
-    // Add the container panel to the FlowLayoutPanel
-    flowLayoutPanel.Controls.Add(containerPanel);
-}
+            // Add the container panel to the FlowLayoutPanel
+            flowLayoutPanel.Controls.Add(containerPanel);
+        }
 
         private async Task CopyButton_Click(object? sender, EventArgs e, string imageUrl)
         {
@@ -169,7 +173,18 @@ namespace WebDataExtractor
                 }
             }
         }
-        
+        private void CheckDataButton_Click(object sender, EventArgs e)
+        {
+            // Prepare the full data to display
+            string fullData = $"Data: {fullDataHtml}"; // Use raw HTML stored in fullDataHtml
+
+            // Create a new instance of CheckDataForm and pass the full data
+            CheckDataForm checkDataForm = new CheckDataForm(fullData);
+            
+            // Show the new form
+            checkDataForm.ShowDialog(); // Use ShowDialog to keep the form integrated with Form1
+        }
+
         private void copyAllButton_Click(object sender, EventArgs e)
         {
             string allData = $"Product Name: {productNameTextBox.Text}\n" +
@@ -177,7 +192,7 @@ namespace WebDataExtractor
                              $"Price: {priceTextBox.Text}\n" +
                              $"Supplier Link: {supplierLinkTextBox.Text}\n" +
                              $"Data: {dataRichTextBox.Text}";
-            Clipboard.SetText(allData); // Menyalin semua teks ke clipboard
+            Clipboard.SetText(allData); // Copy all text to clipboard
         }
 
         private void copyPromptButton_Click(object sender, EventArgs e)
@@ -203,6 +218,6 @@ namespace WebDataExtractor
             string result = $"{prompt}\n\n{allData}";
             Clipboard.SetText(result);
             MessageBox.Show("Prompt and data copied to clipboard!");
-        }        
+        }
     }
 }

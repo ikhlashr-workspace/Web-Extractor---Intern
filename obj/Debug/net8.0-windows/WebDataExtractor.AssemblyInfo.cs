@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("WebDataExtractor")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("gaotekmagang")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("WebDataExtractor")]
-[assembly: System.Reflection.AssemblyTitleAttribute("WebDataExtractor")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a09dd3f0831487e14cf40c3c0a9f31a297cebcb2")]
+[assembly: System.Reflection.AssemblyProductAttribute("gaotekmagang")]
+[assembly: System.Reflection.AssemblyTitleAttribute("gaotekmagang")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
