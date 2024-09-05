@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\ANTA\\GAOTek\\GAOTek Development Program\\GAOTek-Dev-Program\\WebDataExtractor.csproj",
-        "projectName": "gaotekmagang",
+        "projectName": "productsourcingIntern",
         "projectPath": "C:\\Users\\ANTA\\GAOTek\\GAOTek Development Program\\GAOTek-Dev-Program\\WebDataExtractor.csproj",
         "packagesPath": "C:\\Users\\ANTA\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ANTA\\GAOTek\\GAOTek Development Program\\GAOTek-Dev-Program\\obj\\",
@@ -46,6 +46,10 @@
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.65, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[3.0.1, )"
             },
             "Selenium.WebDriver": {
               "target": "Package",

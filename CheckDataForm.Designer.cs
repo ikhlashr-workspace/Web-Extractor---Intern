@@ -3,7 +3,7 @@ namespace WebDataExtractor
     partial class CheckDataForm
     {
         private System.ComponentModel.IContainer components = null;
-        private RichTextBox richTextBox1;
+        private DataGridView dataGridView1;
 
         protected override void Dispose(bool disposing)
         {
@@ -16,24 +16,27 @@ namespace WebDataExtractor
 
         private void InitializeComponent()
         {
-            this.richTextBox1 = new RichTextBox();
+            this.dataGridView1 = new DataGridView();
             this.SuspendLayout();
             
-            // richTextBox1
-            this.richTextBox1.Dock = DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(800, 450);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            // dataGridView1
+            this.dataGridView1.Dock = DockStyle.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  // Kolom otomatis menyesuaikan
+            this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;   // Baris otomatis menyesuaikan
+            this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Font = new System.Drawing.Font("Segoe UI", 12F);  // Perbesar font
+            this.dataGridView1.RowTemplate.Height = 40;  // Ukuran baris lebih besar
+            this.dataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);  // Header font lebih besar
+            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
+            this.dataGridView1.TabIndex = 0;
 
             // CheckDataForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.richTextBox1);
-            this.Name = "CheckDataForm";
-            this.Text = "Full Data";
+            this.ClientSize = new System.Drawing.Size(1000, 600);  // Perbesar ukuran form
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "Technical Spesifications";
+            this.Text = "Technical Spesifications";
             this.ResumeLayout(false);
         }
     }

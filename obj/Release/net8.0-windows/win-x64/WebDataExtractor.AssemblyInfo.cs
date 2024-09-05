@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("gaotekmagang")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("productsourcingIntern")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01bdeb8080959b0737be6ce9c1d1a478ae798c0d")]
-[assembly: System.Reflection.AssemblyProductAttribute("gaotekmagang")]
-[assembly: System.Reflection.AssemblyTitleAttribute("gaotekmagang")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+043060245d7094ff7dda789b3592db3f75f5c299")]
+[assembly: System.Reflection.AssemblyProductAttribute("productsourcingIntern")]
+[assembly: System.Reflection.AssemblyTitleAttribute("productsourcingIntern")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
