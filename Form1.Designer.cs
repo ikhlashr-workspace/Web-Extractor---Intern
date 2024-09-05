@@ -1,4 +1,5 @@
-﻿namespace WebDataExtractor
+﻿//create by iklashR
+namespace WebDataExtractor
 {
     partial class Form1
     {

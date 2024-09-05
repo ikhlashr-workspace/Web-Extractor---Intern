@@ -2,6 +2,8 @@ C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\n
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\publish\selenium-manager\linux\selenium-manager
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\publish\selenium-manager\macos\selenium-manager
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\publish\selenium-manager\windows\selenium-manager.exe
+C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\publish\productintern.ico
+C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\publish\prompt.txt
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\publish\productsourcingIntern.dll
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\publish\productsourcingIntern.deps.json
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\publish\productsourcingIntern.runtimeconfig.json

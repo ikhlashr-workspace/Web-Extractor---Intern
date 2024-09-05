@@ -1,3 +1,4 @@
+//create by iklashR
 namespace WebDataExtractor
 {
     partial class CheckDataForm

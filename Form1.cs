@@ -1,3 +1,4 @@
+//create by iklashR
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -14,6 +15,7 @@ namespace WebDataExtractor
         public Form1()
         {
             InitializeComponent();
+            this.Icon = new Icon("productintern.ico");
             copyPromptButton.Visible = false;
             checkDataButton.Visible = false;
         }

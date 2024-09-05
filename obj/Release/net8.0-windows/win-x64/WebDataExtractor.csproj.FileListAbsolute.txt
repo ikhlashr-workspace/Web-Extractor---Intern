@@ -1932,3 +1932,5 @@ C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\obj\Release\n
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\obj\Release\net8.0-windows\win-x64\refint\productsourcingIntern.dll
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\obj\Release\net8.0-windows\win-x64\productsourcingIntern.pdb
 C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\obj\Release\net8.0-windows\win-x64\ref\productsourcingIntern.dll
+C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\productintern.ico
+C:\Users\ANTA\GAOTek\GAOTek Development Program\GAOTek-Dev-Program\bin\Release\net8.0-windows\win-x64\prompt.txt
